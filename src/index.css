@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@font-face {
+  font-family: "Jalnan2TTF";
+  font-weight: normal;
+  src: url("./fonts/Jalnan2TTF.ttf") format("truetype");
+}
+
+body {
+  font-family: "Jalnan2TTF";
+}

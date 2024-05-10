@@ -1,0 +1,34 @@
+.pointdetail {
+  width: 100vw;
+  height: 100vh;
+  background-color: #3E5835;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0;
+}
+
+.header{
+  width: 100%;
+}
+
+.content {
+  width: 80%;
+  height: 230px;
+  background-color: #FEFEF4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0 5px;
+  border-radius: 20px;
+  justify-content: center;
+}
+
+.content h2 {
+  margin: 20px;
+}
+
+.text {
+  color: #171923;
+  font-size: 20px;
+}

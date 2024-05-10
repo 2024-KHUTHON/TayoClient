@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: rgb(144, 181, 144);
+        }
+        .view {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .nav {
+            display: flex;
+            padding: 20px;
+            box-sizing: border-box;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+            width: 100%;
+        }
+
+        .you_name {
+            font-size: 18px;
+        }
+
+        .chat_area {
+            flex-grow: 1;
+            overflow-y: scroll;
+        }
+
+        .chat_input_wrap {
+            display: flex;
+            padding: 5px 15px 5px 15px;
+            box-sizing: border-box;
+            width: 100%;
+            height: 50px;
+            min-height: 50px;
+            background-color: white;
+        }
+
+        .chat_input {
+            border: none;
+            outline: none;
+            border-radius: 6px;
+            width: 100%;
+            padding: 0px 10px 0px 10px;
+            background-color: rgb(243, 243, 243);
+        }
+        .my-balloon-wrap {
+            display: flex;
+            margin: 10px;
+            justify-content: end;
+        }
+        .my-balloon {
+            background-color: rgb(255, 255, 67);
+            padding: 5px 8px 5px 8px;
+            border-radius: 6px;
+        }
+    </style>
+    <title>Tayo-Chat</title>
+</head>
+<body>
+    <div class="view">
+        <div class="nav">
+            <div>
+                <
+            </div>
+            <div class="you_name">
+                유재석
+            </div>
+            <div>
+
+            </div>
+        </div>
+        <div id="chat-area" class="chat_area">
+
+        </div>
+        <div class="chat_input_wrap">
+            <input id="chat-input" class="chat_input">
+
+            </input>
+        </div>
+    </div>
+</body>
+<script>
+    const socket = io()
+
+    const createChatBalloon = (text, who) => {
+        let template = `<div class="my-balloon-wrap"><div class="my-balloon">${text}</div></div>`
+        return template
+    }
+
+    const chat_input = document.getElementById('chat-input')
+    const chat_area = document.getElementById('chat-area')
+    chat_input.addEventListener("keydown", (e) => {
+        if(e.keyCode === 13) {
+            const chatText = chat_input.value;
+            if (!chatText) return;
+            chat_input.value = "";
+
+            chat_area.innerHTML += createChatBalloon(chatText, 1)
+            chat_area.scrollTop = chat_area.scrollHeight;
+        }
+    })
+
+</script>
+</html>
